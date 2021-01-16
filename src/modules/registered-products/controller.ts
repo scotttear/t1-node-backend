@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import delay from '../../utils/delay';
 import { createMultipleProducts } from '../products';
 
 const productData = {
@@ -6,5 +7,5 @@ const productData = {
 };
 
 export default (req: Request, res: Response) => {
-  setTimeout(() => res.send(productData), 1000);
+  delay(2000).then(() => res.send(productData));
 };

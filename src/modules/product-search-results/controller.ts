@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import delay from '../../utils/delay';
 import { createMultipleProducts } from '../products';
 
 export default (req: Request, res: Response) => {
@@ -31,6 +32,5 @@ export default (req: Request, res: Response) => {
     TotalShowing: results.length,
   };
 
-  // Delay to mirror a real world response
-  setTimeout(() => res.send(productsData), 1000);
+  delay(2000).then(() => res.send(productsData));
 };

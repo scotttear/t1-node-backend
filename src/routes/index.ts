@@ -2,7 +2,9 @@ import { Application } from 'express';
 import searchResultsController from '../modules/product-search-results/controller';
 import registeredProductsController from '../modules/registered-products/controller';
 import slotsController from '../modules/slots/controller';
+import { retailersOverlayController } from '../modules/overlays/controller';
 import {
+  submitBookingController,
   serviceBookingRetrieveController,
   serviceBookingUpdateController
 } from '../modules/service-booking/controller';
@@ -17,9 +19,15 @@ export default (app: Application) => {
   // Slots calendar data
   app.post('/slots', slotsController);
 
+  // Submit a booking form
+  app.post('/booking/submit', submitBookingController);
+
   // Get appointment details via booking form
   app.post('/booking/retrieve', serviceBookingRetrieveController);
 
   // Update appointment details via booking form
   app.post('/booking/update', serviceBookingUpdateController);
+
+  // Overlays
+  app.get('/overlays/online-retailer', retailersOverlayController);
 };

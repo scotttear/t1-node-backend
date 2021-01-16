@@ -8,7 +8,7 @@ const createProduct = (): object => {
   return {
     PNC: pnc,
     ModelD: modalId,
-    MlCode: '03',
+    MlCode: null,
     SerialNumber: null,
     ProductPageId: 0,
     LanguageCode: 'en-GB',

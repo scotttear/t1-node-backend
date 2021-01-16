@@ -1,4 +1,4 @@
-import express, { Application, json } from 'express';
+import express, { Application, json, urlencoded } from 'express';
 import cors from 'cors';
 
 class App {
@@ -12,6 +12,7 @@ class App {
   private config(): void {
     this.app.use(cors());
     this.app.use(json());
+    this.app.use(urlencoded({ extended:true }));
   }
 }
 
