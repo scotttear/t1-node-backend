@@ -3,6 +3,8 @@ import searchResultsController from '../modules/product-search-results/controlle
 import registeredProductsController from '../modules/registered-products/controller';
 import slotsController from '../modules/slots/controller';
 import { retailersOverlayController } from '../modules/overlays/controller';
+import { d2cProductController } from '../modules/d2c/controller';
+import plpController from '../modules/plp/controller';
 import {
   submitBookingController,
   serviceBookingRetrieveController,
@@ -30,4 +32,10 @@ export default (app: Application) => {
 
   // Overlays
   app.get('/overlays/online-retailer', retailersOverlayController);
+
+  // plp (ccv2 api)
+  app.get('/plp', plpController);
+
+  // D2c
+  app.get('/d2c/get-product', d2cProductController);
 };
